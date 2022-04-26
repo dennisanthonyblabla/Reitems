@@ -63,7 +63,6 @@
 				3122AEE72816A2DD00CFBB30 /* CatTable */,
 				3122AED02816A1B100CFBB30 /* AppDelegate.swift */,
 				3122AED22816A1B100CFBB30 /* SceneDelegate.swift */,
-				3122AED42816A1B100CFBB30 /* ViewController.swift */,
 				3122AEDC2816A1B200CFBB30 /* Assets.xcassets */,
 				3122AEDE2816A1B200CFBB30 /* LaunchScreen.storyboard */,
 				3122AEE12816A1B200CFBB30 /* Info.plist */,
@@ -76,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				3122AED62816A1B100CFBB30 /* Main.storyboard */,
+				3122AED42816A1B100CFBB30 /* ViewController.swift */,
 				3122AEE82816A2F700CFBB30 /* CatTableTableViewController.swift */,
 			);
 			path = CatTable;
