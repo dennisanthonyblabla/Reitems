@@ -87,19 +87,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         } */
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-            let action = UITableViewRowAction(style: .normal, title: "wew") { (action, indexPath) in
+            let action = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
+                self.arrLocation.remove(at: indexPath.row)
+                tableView.reloadData()
                 print("Button Clicked")
             }
             
-            let action2 = UITableViewRowAction(style: .normal, title: "wow") { (action, indexPath) in
+            /*let action2 = UITableViewRowAction(style: .normal, title: "wow") { (action, indexPath) in
                 print("Button Clicked")
-            }
+            }*/
             
-            action.backgroundColor = UIColor.orange
-            action2.backgroundColor = UIColor(red: 0.02, green: 0.60, blue: 0.56, alpha: 1.00)
-            
-            return [action,action2]
+            action.backgroundColor = UIColor.red
+            //action2.backgroundColor = UIColor(red: 0.02, green: 0.60, blue: 0.56, alpha: 1.00)
+        return [action]
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
         
 }
 

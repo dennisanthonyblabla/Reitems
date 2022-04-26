@@ -14,7 +14,7 @@
 		3122AEDB2816A1B100CFBB30 /* Reitems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3122AED92816A1B100CFBB30 /* Reitems.xcdatamodeld */; };
 		3122AEDD2816A1B200CFBB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3122AEDC2816A1B200CFBB30 /* Assets.xcassets */; };
 		3122AEE02816A1B200CFBB30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3122AEDE2816A1B200CFBB30 /* LaunchScreen.storyboard */; };
-		3122AEE92816A2F700CFBB30 /* CatTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122AEE82816A2F700CFBB30 /* CatTableTableViewController.swift */; };
+		3122AEEE2817CD4E00CFBB30 /* itemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122AEED2817CD4E00CFBB30 /* itemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		3122AEDC2816A1B200CFBB30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3122AEDF2816A1B200CFBB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3122AEE12816A1B200CFBB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3122AEE82816A2F700CFBB30 /* CatTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTableTableViewController.swift; sourceTree = "<group>"; };
+		3122AEED2817CD4E00CFBB30 /* itemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,9 @@
 		3122AECF2816A1B100CFBB30 /* Reitems */ = {
 			isa = PBXGroup;
 			children = (
-				3122AEE72816A2DD00CFBB30 /* CatTable */,
+				3122AEED2817CD4E00CFBB30 /* itemViewController.swift */,
+				3122AED42816A1B100CFBB30 /* ViewController.swift */,
+				3122AED62816A1B100CFBB30 /* Main.storyboard */,
 				3122AED02816A1B100CFBB30 /* AppDelegate.swift */,
 				3122AED22816A1B100CFBB30 /* SceneDelegate.swift */,
 				3122AEDC2816A1B200CFBB30 /* Assets.xcassets */,
@@ -69,16 +71,6 @@
 				3122AED92816A1B100CFBB30 /* Reitems.xcdatamodeld */,
 			);
 			path = Reitems;
-			sourceTree = "<group>";
-		};
-		3122AEE72816A2DD00CFBB30 /* CatTable */ = {
-			isa = PBXGroup;
-			children = (
-				3122AED62816A1B100CFBB30 /* Main.storyboard */,
-				3122AED42816A1B100CFBB30 /* ViewController.swift */,
-				3122AEE82816A2F700CFBB30 /* CatTableTableViewController.swift */,
-			);
-			path = CatTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3122AEEE2817CD4E00CFBB30 /* itemViewController.swift in Sources */,
 				3122AED52816A1B100CFBB30 /* ViewController.swift in Sources */,
 				3122AEDB2816A1B100CFBB30 /* Reitems.xcdatamodeld in Sources */,
-				3122AEE92816A2F700CFBB30 /* CatTableTableViewController.swift in Sources */,
 				3122AED12816A1B100CFBB30 /* AppDelegate.swift in Sources */,
 				3122AED32816A1B100CFBB30 /* SceneDelegate.swift in Sources */,
 			);
