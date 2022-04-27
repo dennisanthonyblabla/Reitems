@@ -9,11 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    struct category {
-        let location: String
-        
-        let items: [String]
-    }
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var locations: [AllData]?
 
     var arrLocation = ["Bedroom Box Storage", "Bedroom Blue Case", "Living Room Key Storage", "Living Room Book Shelve", "Toilet Medicine Box"]
     var index = 0
@@ -23,25 +20,6 @@ class ViewController: UIViewController {
     
     @IBOutlet var catTableView: UITableView!
     
-    @IBAction func addLocation(_ sender: UIBarButtonItem) {
-        // Create Alert
-        let alert = UIAlertController(title: "Add Location", message: "What location would you add?", preferredStyle: .alert)
-        alert.addTextField()
-        // Configure button handler
-        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
-            // Get the textField for the alert
-            let textField = alert.textFields![0]
-            // Create a person object
-            let newLocation = textField.text!
-            // Save the data
-            self.arrLocation.append(newLocation)
-            self.catTableView.reloadData()
-        }
-        // Add button
-        alert.addAction(submitButton)
-        // Show alert
-        self.present(alert, animated: true)
-    }
     
     private let data:[Category] = [
 //        Category(location: [LocationDetail(detailName: "Bedroom Box Storage", detailAttribuite: DetailAtributeModel(location: <#T##String?#>, desc: <#T##String?#>, date: <#T##String?#>))])
@@ -55,18 +33,54 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-
-
         catTableView.register(UITableViewCell.self, forCellReuseIdentifier: "catCell")
         catTableView.delegate = self
         catTableView.dataSource = self
         catTableView.dragDelegate = self
         catTableView.dragInteractionEnabled = true
+        
+        fetchLocation()
+    }
+    
+    func fetchLocation() {
+        
+        do {
+            self.locations = try context.fetch(AllData.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.catTableView.reloadData()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    @IBAction func addLocation(_ sender: UIBarButtonItem) {
+        // Create Alert
+        let alert = UIAlertController(title: "Add Location", message: "What location would you add?", preferredStyle: .alert)
+        alert.addTextField()
+        // Configure button handler
+        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
+            // Get the textField for the alert
+            let textField = alert.textFields![0]
+            // Create a person object
+            let newLocation = AllData(context: self.context)
+            newLocation.location = textField.text
+            
+            // Save the data
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+            }
+            
+            // Re-fetch the data
+            self.fetchLocation()
+        }
+        // Add button
+        alert.addAction(submitButton)
+        // Show alert
+        self.present(alert, animated: true)
     }
 
 
@@ -74,27 +88,35 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "catCell")
-            
-            cell?.textLabel?.text = arrLocation[indexPath.row]
-            
-            return cell!
-        }
-        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return arrLocation.count
+        return self.locations?.count ?? 0
         }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath)
+            
+            let locationArr = self.locations![indexPath.row]
         
-    /*    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                print("DELETED \(indexPath.row)")
-                arrFruits.remove(at: indexPath.row)
-                tableView.reloadData()
+            cell.textLabel?.text = locationArr.location
+            
+            return cell
+        }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "goToItems", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectecLocation = self.locations![index]
+            if let vc = segue.destination as? itemViewController {
+                vc.titleTop = selectecLocation.location ?? "nothing"
             }
-        } */
+    }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
             let action = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
                 self.arrLocation.remove(at: indexPath.row)
                 tableView.reloadData()
@@ -108,23 +130,62 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             action.backgroundColor = UIColor.red
             //action2.backgroundColor = UIColor(red: 0.02, green: 0.60, blue: 0.56, alpha: 1.00)
         return [action]
-        }
+        }*/
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "goToItems", sender: self)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        
-    }
-    
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-            if let vc = segue.destination as? itemViewController {
-                vc.titleTop = arrLocation[index]
+        // Create swipe action
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            // Which person to remove
+            let locationToRemove = self.locations![indexPath.row]
+            // Remove the person
+            self.context.delete(locationToRemove)
+            // Save the data
+            do {
+                try self.context.save()
+            } catch {
+                
             }
+            // Re-fetch the data
+            self.fetchLocation()
+        }
+        
+        let action2 = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
+            // Which person to remove
+            let locationToEdit = self.locations![indexPath.row]
+            // Edit alert
+            let alert = UIAlertController(title: "Edit Person", message: "Edit name:", preferredStyle: .alert)
+            alert.addTextField()
+            
+            let textField = alert.textFields![0]
+            textField.text = locationToEdit.location
+            
+            // Configure button handler
+            let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
+                
+                // Get the textfield for the alert
+                let textField = alert.textFields![0]
+                
+                // Edit name property of person object
+                locationToEdit.location = textField.text
+                
+            
+            // Save the data
+            do {
+                try self.context.save()
+            } catch {
+            }
+            // Re-fetch the data
+            self.fetchLocation()
+            }
+            alert.addAction(saveButton)
+            // Show alert
+            self.present(alert, animated: true)
+        }
+        // Return swipe actions
+        return UISwipeActionsConfiguration(actions: [action, action2])
     }
+
         
 }
 
