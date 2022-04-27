@@ -8,6 +8,12 @@
 import Foundation
 
 struct Category {
+    let locations: String?
+    let items: [String]?
+}
+
+
+/*struct Category {
     let location: [LocationDetail]?
 }
 
@@ -21,3 +27,4 @@ struct DetailAtributeModel {
     var desc: String?
     var date: String?
 }
+*/
