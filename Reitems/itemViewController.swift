@@ -8,17 +8,22 @@
 import UIKit
 
 class itemViewController: UIViewController {
-
-    @IBAction func backToLocation(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+    
+    
+    var titleDefault = "The Location Name"
+    var titleTop = ""
     
     @IBOutlet var itemTitleLbl: UILabel!
+    
+   
+    @IBAction func backItemBtn(_ sender: Any) {
+        performSegue(withIdentifier: "UnwindToLocation", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemTitleLbl.text = "wew"
+        itemTitleLbl.text = titleTop
 
         // Do any additional setup after loading the view.
     }

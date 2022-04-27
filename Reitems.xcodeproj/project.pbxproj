@@ -15,6 +15,7 @@
 		3122AEDD2816A1B200CFBB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3122AEDC2816A1B200CFBB30 /* Assets.xcassets */; };
 		3122AEE02816A1B200CFBB30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3122AEDE2816A1B200CFBB30 /* LaunchScreen.storyboard */; };
 		3122AEEE2817CD4E00CFBB30 /* itemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122AEED2817CD4E00CFBB30 /* itemViewController.swift */; };
+		31A81E1E2818FDD20061FE47 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A81E1D2818FDD20061FE47 /* LocationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3122AEDF2816A1B200CFBB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3122AEE12816A1B200CFBB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3122AEED2817CD4E00CFBB30 /* itemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemViewController.swift; sourceTree = "<group>"; };
+		31A81E1D2818FDD20061FE47 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				3122AEDE2816A1B200CFBB30 /* LaunchScreen.storyboard */,
 				3122AEE12816A1B200CFBB30 /* Info.plist */,
 				3122AED92816A1B100CFBB30 /* Reitems.xcdatamodeld */,
+				31A81E1D2818FDD20061FE47 /* LocationModel.swift */,
 			);
 			path = Reitems;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				3122AED52816A1B100CFBB30 /* ViewController.swift in Sources */,
 				3122AEDB2816A1B100CFBB30 /* Reitems.xcdatamodeld in Sources */,
 				3122AED12816A1B100CFBB30 /* AppDelegate.swift in Sources */,
+				31A81E1E2818FDD20061FE47 /* LocationModel.swift in Sources */,
 				3122AED32816A1B100CFBB30 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
