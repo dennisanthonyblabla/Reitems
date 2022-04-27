@@ -10,10 +10,13 @@ import UIKit
 class itemViewController: UIViewController {
     
     
-    var titleDefault = "The Location Name"
     var titleTop = ""
+    var LocationIndexNumber: Int = 0
+    var locations: [String]?
+    var items: [String]?
     
     @IBOutlet var itemTitleLbl: UILabel!
+    @IBOutlet var itemsTable: UITableView!
     
    
     @IBAction func backItemBtn(_ sender: Any) {
@@ -27,19 +30,18 @@ class itemViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    //unwind function
 
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension itemViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
 }

@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-xD-4pc">
-                                <rect key="frame" x="20" y="88" width="74" height="35"/>
+                                <rect key="frame" x="20" y="88" width="374" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Items">
@@ -114,6 +114,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemTitleLbl" destination="1zA-xD-4pc" id="QhB-fW-sFN"/>
+                        <outlet property="itemsTable" destination="76T-o9-56e" id="rZJ-o1-0Yv"/>
                         <segue destination="2QA-TV-WBI" kind="show" identifier="goToDetails" id="2KS-i9-gYV"/>
                         <segue destination="oFx-PW-Ya6" kind="unwind" identifier="UnwindToLocation" unwindAction="unwind:" id="2is-qA-qr3"/>
                     </connections>
@@ -121,7 +122,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3E-mD-9e0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="oFx-PW-Ya6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="92"/>
+            <point key="canvasLocation" x="2528.985507246377" y="91.741071428571431"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3pl-pe-SYd">
@@ -132,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ho-8V-bMQ">
-                                <rect key="frame" x="20" y="88" width="59" height="35"/>
+                                <rect key="frame" x="20" y="88" width="374" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Item">
@@ -219,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovr-2y-KmT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3293" y="92"/>
+            <point key="canvasLocation" x="3292.753623188406" y="91.741071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OBy-vU-HYP">

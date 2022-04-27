@@ -9,11 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    struct category {
-        let location: String
-        
-        let items: [String]
-    }
 
     var arrLocation = ["Bedroom Box Storage", "Bedroom Blue Case", "Living Room Key Storage", "Living Room Book Shelve", "Toilet Medicine Box"]
     var index = 0
@@ -42,15 +37,7 @@ class ViewController: UIViewController {
         // Show alert
         self.present(alert, animated: true)
     }
-    
-    private let data:[Category] = [
-//        Category(location: [LocationDetail(detailName: "Bedroom Box Storage", detailAttribuite: DetailAtributeModel(location: <#T##String?#>, desc: <#T##String?#>, date: <#T##String?#>))])
-//        category(location: "Bedroom Box Storage", items: ["gamepad", "comb"] ),
-//        category(location: "Bedroom Blue Case", items: ["watch", "wipes", "Spare Mouse"]),
-//        category(location: "Living Room Key Storage", items: ["Front Door Key", "Master Bedroom Key"]),
-//        category(location: "Living Room Book Shelve", items: ["Dummies for Windows", "Hacking With Swift", "English Proficiency"]),
-//        category(location: "Toilet Medicine Box", items: ["Blue Pill", "Red Pill", "Pill Chi Kit", "Coughing Drops", "Shave Foam"])
-    ]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +64,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "catCell")
             
-            cell?.textLabel?.text = arrLocation[indexPath.row]
+        cell?.textLabel?.text = arrLocation[indexPath.row]
             
             return cell!
         }
@@ -123,6 +110,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
             if let vc = segue.destination as? itemViewController {
                 vc.titleTop = arrLocation[index]
+                vc.LocationIndexNumber = index
+                vc.locations = arrLocation
             }
     }
         
