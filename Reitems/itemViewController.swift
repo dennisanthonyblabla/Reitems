@@ -9,11 +9,22 @@ import UIKit
 
 class itemViewController: UIViewController {
 
+    @IBAction func backToLocation(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet var itemTitleLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        itemTitleLbl.text = "wew"
 
         // Do any additional setup after loading the view.
     }
+    
+    //unwind function
+
     
 
     /*

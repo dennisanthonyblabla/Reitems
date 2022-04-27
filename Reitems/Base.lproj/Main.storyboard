@@ -57,7 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="catTableView" destination="G7e-gs-oid" id="3D1-b3-2lV"/>
-                        <segue destination="4e8-0p-d65" kind="show" id="271-2f-go5"/>
+                        <segue destination="4e8-0p-d65" kind="presentation" identifier="goToItems" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="aOl-IO-MCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eb-VN-UTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -105,11 +105,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="sFd-VH-L8B">
-                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="b3M-TT-iM0"/>
+                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="b3M-TT-iM0">
+                            <connections>
+                                <action selector="backToLocation:" destination="V37-ZC-L80" id="kGi-Yg-UM0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VD3-dv-hJS"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="Qhh-7e-rIT" kind="presentation" id="06m-OH-fma"/>
+                        <outlet property="itemTitleLbl" destination="1zA-xD-4pc" id="QhB-fW-sFN"/>
+                        <segue destination="Qhh-7e-rIT" kind="presentation" identifier="" id="06m-OH-fma"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3E-mD-9e0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

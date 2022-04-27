@@ -8,41 +8,45 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    struct category {
+        let location: String
+        let items: [String]
+    }
 
     var arrLocation = ["Bedroom Box Storage", "Bedroom Blue Case", "Living Room Key Storage", "Living Room Book Shelve", "Toilet Medicine Box"]
+    var index = 0
+    
     
     @IBOutlet var catTableView: UITableView!
     
-    
     @IBAction func addLocation(_ sender: UIBarButtonItem) {
-        
-     print("kepencet")
         // Create Alert
         let alert = UIAlertController(title: "Add Location", message: "What location would you add?", preferredStyle: .alert)
         alert.addTextField()
-        
         // Configure button handler
         let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
-            
             // Get the textField for the alert
             let textField = alert.textFields![0]
-            
             // Create a person object
             let newLocation = textField.text!
-            
             // Save the data
             self.arrLocation.append(newLocation)
-            
             self.catTableView.reloadData()
-            
         }
-        
         // Add button
         alert.addAction(submitButton)
-        
         // Show alert
         self.present(alert, animated: true)
     }
+    
+    private let data:[category] = [
+        category(location: "Bedroom Box Storage", items: ["gamepad", "comb"] ),
+        category(location: "Bedroom Blue Case", items: ["watch", "wipes", "Spare Mouse"]),
+        category(location: "Living Room Key Storage", items: ["Front Door Key", "Master Bedroom Key"]),
+        category(location: "Living Room Book Shelve", items: ["Dummies for Windows", "Hacking With Swift", "English Proficiency"]),
+        category(location: "Toilet Medicine Box", items: ["Blue Pill", "Red Pill", "Pill Chi Kit", "Coughing Drops", "Shave Foam"])
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,8 +107,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+//        let VC = itemViewController()
+//        VC.itemTitleLbl.text = arrLocation[index]
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "goToItems", sender: self)
+        
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        var destination = segue.destination as! itemViewController
+//        destination.itemTitleLbl.text = arrLocation[index]
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goToItems") {
+            let vc = segue.destination as! itemViewController
+            vc.itemTitleLbl.text = "test"
+        }
+    }*/
         
 }
 
