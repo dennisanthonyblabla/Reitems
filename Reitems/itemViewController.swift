@@ -10,8 +10,8 @@ import UIKit
 class itemViewController: UIViewController {
     
     
-    var titleDefault = "The Location Name"
     var titleTop = ""
+    var currentIndex: AllData?
     
     @IBOutlet var itemTitleLbl: UILabel!
     
@@ -24,6 +24,8 @@ class itemViewController: UIViewController {
         super.viewDidLoad()
         
         itemTitleLbl.text = titleTop
+        print(currentIndex?.location)
+        print(titleTop)
 
         // Do any additional setup after loading the view.
     }

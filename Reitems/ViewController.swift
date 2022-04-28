@@ -110,10 +110,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToItems"{
         let selectecLocation = self.locations![index]
             if let vc = segue.destination as? itemViewController {
                 vc.titleTop = selectecLocation.location ?? "nothing"
-            }
+                vc.currentIndex = selectecLocation
+            }}
     }
 
     /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
