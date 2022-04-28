@@ -69,15 +69,15 @@ class ViewController: UIViewController {
             
             // add new items in location
             let newItems = ItemsClass(context: self.context)
-            newItems.itemName = "yok"
+            newItems.itemName = "oke"
             newItems.itemID  = 1
             
             let newItems2 = ItemsClass(context: self.context)
-            newItems2.itemName = "test"
+            newItems2.itemName = "mantap"
             newItems2.itemID = 2
             
             let newItems3 = ItemsClass(context: self.context)
-            newItems3.itemName = "oke"
+            newItems3.itemName = "siap"
             newItems3.itemID = 3
             
             newLocation.itemsRelation = NSSet.init(array: [newItems, newItems2, newItems3])

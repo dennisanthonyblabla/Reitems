@@ -13,6 +13,8 @@ class itemViewController: UIViewController {
     var currentLocation: LocationsClass?
     var titleTop = ""
     var items: [ItemsClass]?
+    
+    
 //    var itemsarrayed: [String]?
 
     
@@ -39,10 +41,19 @@ class itemViewController: UIViewController {
     }
     
     
+    /*let predicate = NSPredicate(format: "id = %i", id)
+    fetchRequest.predicate = predicate*/
+    
 //     supaya bisa buka datanya location
     func fetchItems() {
         do {
-            self.items = try context.fetch(ItemsClass.fetchRequest())
+            
+            
+            let FetchRequest = ItemsClass.fetchRequest()
+            let predicate = NSPredicate(format: "itemLocation = %@", currentLocation?.location as! CVarArg)
+            FetchRequest.predicate = predicate
+            
+            self.items = try context.fetch(FetchRequest)
 
             DispatchQueue.main.async {
                 self.itemTableView.reloadData()
