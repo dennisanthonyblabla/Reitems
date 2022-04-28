@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var locations: [AllData]?
+    var locations: [LocationsClass]?
 
     var arrLocation = ["Bedroom Box Storage", "Bedroom Blue Case", "Living Room Key Storage", "Living Room Book Shelve", "Toilet Medicine Box"]
     var index = 0
@@ -42,10 +42,10 @@ class ViewController: UIViewController {
         fetchLocation()
     }
     
+    // supaya bisa buka datanya location
     func fetchLocation() {
-        
         do {
-            self.locations = try context.fetch(AllData.fetchRequest())
+            self.locations = try context.fetch(LocationsClass.fetchRequest())
             
             DispatchQueue.main.async {
                 self.catTableView.reloadData()
@@ -63,9 +63,25 @@ class ViewController: UIViewController {
         let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
             // Get the textField for the alert
             let textField = alert.textFields![0]
-            // Create a person object
-            let newLocation = AllData(context: self.context)
+            // Create new location
+            let newLocation = LocationsClass(context: self.context)
             newLocation.location = textField.text
+            
+            // add new items in location
+            let newItems = ItemsClass(context: self.context)
+            newItems.itemName = "yok"
+            newItems.itemID  = 1
+            
+            let newItems2 = ItemsClass(context: self.context)
+            newItems2.itemName = "test"
+            newItems2.itemID = 2
+            
+            let newItems3 = ItemsClass(context: self.context)
+            newItems3.itemName = "oke"
+            newItems3.itemID = 3
+            
+            newLocation.itemsRelation = NSSet.init(array: [newItems, newItems2, newItems3])
+//            newItems.location = newLocation
             
             // Save the data
             do {
@@ -114,7 +130,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         let selectecLocation = self.locations![index]
             if let vc = segue.destination as? itemViewController {
                 vc.titleTop = selectecLocation.location ?? "nothing"
-                vc.currentIndex = selectecLocation
+                vc.currentLocation = selectecLocation
             }}
     }
 
