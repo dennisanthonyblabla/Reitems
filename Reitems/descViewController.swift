@@ -12,13 +12,16 @@ class descViewController: UIViewController {
     @IBOutlet var itemTitle: UILabel!
     @IBOutlet var itemPict: UIImageView!
     
+    @IBAction func backBtnDesc(_ sender: Any) {
+        performSegue(withIdentifier: "UnwindToItems", sender: self)
+    }
+    
     var titleTopDesc: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         itemTitle.text = titleTopDesc
         
-        print(titleTopDesc)
         // Do any additional setup after loading the view.
     }
     

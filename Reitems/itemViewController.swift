@@ -22,6 +22,9 @@ class itemViewController: UIViewController {
     @IBOutlet var itemTitleLbl: UILabel!
     @IBOutlet var itemTableView: UITableView!
     
+    // Unwinds tanda
+    @IBAction func unwindDesc( _ seg: UIStoryboardSegue) {
+    }
    
     @IBAction func backItemBtn(_ sender: Any) {
         performSegue(withIdentifier: "UnwindToLocation", sender: self)
@@ -38,6 +41,7 @@ class itemViewController: UIViewController {
 
         fetchItems()
     }
+    
     
     
 //     supaya bisa buka datanya location

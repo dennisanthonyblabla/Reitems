@@ -172,7 +172,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             // Which person to remove
             let locationToEdit = self.locations![indexPath.row]
             // Edit alert
-            let alert = UIAlertController(title: "Edit Person", message: "Edit name:", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Edit Location", message: "Rename the location", preferredStyle: .alert)
             alert.addTextField()
             
             let textField = alert.textFields![0]
