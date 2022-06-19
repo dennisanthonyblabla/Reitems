@@ -2,7 +2,7 @@
 //  ItemsClass+CoreDataProperties.swift
 //  Reitems
 //
-//  Created by Dennis Anthony on 28/04/22.
+//  Created by Dennis Anthony on 29/04/22.
 //
 //
 
@@ -16,10 +16,11 @@ extension ItemsClass {
         return NSFetchRequest<ItemsClass>(entityName: "Items")
     }
 
-    @NSManaged public var itemName: String?
+    @NSManaged public var editedTime: String?
     @NSManaged public var itemID: Int64
     @NSManaged public var itemLocation: String?
-    @NSManaged public var editedTime: String?
+    @NSManaged public var itemName: String?
+    @NSManaged public var itemDesc: String?
     @NSManaged public var locationRelation: LocationsClass?
 
 }

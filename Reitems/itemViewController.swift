@@ -32,6 +32,8 @@ class itemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ini buat custom tombolnya
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(backItemBtn(_:)))
         
         itemTitleLbl.text = titleTop
         

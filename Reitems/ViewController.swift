@@ -18,20 +18,23 @@ class ViewController: UIViewController {
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
     
+    @IBOutlet var titleLocationLabel: UILabel!
     @IBOutlet var catTableView: UITableView!
     
     
-    private let data:[Category] = [
-//        Category(location: [LocationDetail(detailName: "Bedroom Box Storage", detailAttribuite: DetailAtributeModel(location: <#T##String?#>, desc: <#T##String?#>, date: <#T##String?#>))])
-//        category(location: "Bedroom Box Storage", items: ["gamepad", "comb"] ),
-//        category(location: "Bedroom Blue Case", items: ["watch", "wipes", "Spare Mouse"]),
-//        category(location: "Living Room Key Storage", items: ["Front Door Key", "Master Bedroom Key"]),
-//        category(location: "Living Room Book Shelve", items: ["Dummies for Windows", "Hacking With Swift", "English Proficiency"]),
-//        category(location: "Toilet Medicine Box", items: ["Blue Pill", "Red Pill", "Pill Chi Kit", "Coughing Drops", "Shave Foam"])
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //font setting
+//        let boldAttribute = [
+//              NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 18.0)!
+//           ]
+//        let boldText = NSAttributedString(string: "test", attributes: boldAttribute)
+//        let newString = NSMutableAttributedString()
+//        newString.append(boldText)
+//        titleLocationLabel.attributedText = newString
+        
+        
 
         catTableView.register(UITableViewCell.self, forCellReuseIdentifier: "catCell")
         catTableView.delegate = self
@@ -71,14 +74,17 @@ class ViewController: UIViewController {
             let newItems = ItemsClass(context: self.context)
             newItems.itemName = "oke"
             newItems.itemID  = 1
-            
+            newItems.itemDesc = "Ini deskripsinya"
+        
             let newItems2 = ItemsClass(context: self.context)
             newItems2.itemName = "mantap"
             newItems2.itemID = 2
+            newItems2.itemDesc = "Ini deskripsinya 2"
             
             let newItems3 = ItemsClass(context: self.context)
             newItems3.itemName = "siap"
             newItems3.itemID = 3
+            newItems3.itemDesc = "Ini deskripsinya 3"
             
             newLocation.itemsRelation = NSSet.init(array: [newItems, newItems2, newItems3])
 //            newItems.location = newLocation

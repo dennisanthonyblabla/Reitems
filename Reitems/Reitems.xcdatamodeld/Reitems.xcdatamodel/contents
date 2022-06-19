@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Items" representedClassName="ItemsClass" syncable="YES">
         <attribute name="editedTime" optional="YES" attributeType="String"/>
+        <attribute name="itemDesc" optional="YES" attributeType="String"/>
         <attribute name="itemID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="itemLocation" optional="YES" attributeType="String"/>
         <attribute name="itemName" optional="YES" attributeType="String"/>
@@ -12,7 +13,7 @@
         <relationship name="itemsRelation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Items" inverseName="locationRelation" inverseEntity="Items"/>
     </entity>
     <elements>
+        <element name="Items" positionX="944.8984375" positionY="232.98828125" width="130.31640625" height="119"/>
         <element name="Locations" positionX="1182.6796875" positionY="277.81640625" width="128" height="73"/>
-        <element name="Items" positionX="944.8984375" positionY="232.98828125" width="130.31640625" height="118"/>
     </elements>
 </model>

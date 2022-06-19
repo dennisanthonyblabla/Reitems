@@ -2,7 +2,7 @@
 //  LocationsClass+CoreDataProperties.swift
 //  Reitems
 //
-//  Created by Dennis Anthony on 28/04/22.
+//  Created by Dennis Anthony on 29/04/22.
 //
 //
 
@@ -27,17 +27,6 @@ extension LocationsClass {
         }
     }
 
-//    public var itemArray: [ItemsClass] {
-////        let setitem = itemsRelation
-////        return setitem!.sorted {
-////            $0.wrappedItemName > $1.wrappedItemName
-//
-//        let set = itemsRelation as? Set<ItemsClass> ?? []
-//        return set.sorted {
-//            $0.itemID < $1.itemID
-//        }
-//    }
-    
 }
 
 // MARK: Generated accessors for itemsRelation
